@@ -8,7 +8,6 @@ int main(int argc, char const *argv[])
 {
 	if( argc < 2)return -1;
 	unsigned char ch;
-	int n;
 	int * histogramme = (int *) calloc( INT_NUMBER, sizeof(int) );
 	FILE * fd_input = fopen(argv[1],"r");
 	if(fd_input == NULL){
