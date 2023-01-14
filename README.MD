@@ -45,10 +45,11 @@ __Usage :__
     ./<exec_file> <src_file> <dest_file>
 ```
 Le programme effectue une quantification floyd-steinberg 2 bits par canaux (soit 8 couleurs possible en RGB et 2 couleurs en N/B)
+
 **Résultat exemple**
 
-![floyd_steinberg_quantization](/images_git/floyd_steinberg_quantization.png)
-![floyd_steinberg_quantization](/images_git/nb_floyd_steinberg_quantization.png)
+![floyd_steinberg_quantization](/images_git/floyd_steinberg.png)
+![floyd_steinberg_quantization](/images_git/nb_floyd_steinberg.png)
 
 #### histogramme.c
 
@@ -62,9 +63,9 @@ Le programme print les valeurs comme un histogramme
 
 __Usage :__ 
 ```sh
-    ./<exec_file> <src_file> <dest_file.csv>
+    ./<exec_file> <src_file>
 ```
-Le programme envoie les valeurs dans un csv
+Le programme envoie les valeurs dans un csv nommé histogramme.csv
 
 ## Compilation
 
