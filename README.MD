@@ -22,8 +22,8 @@ Le programme demandera un chiffre n désignant la largeur de l’interval de qua
 
 **Résultat exemple**
 
-![uniform_quantization](/assets/images_git/uniform_quantization.png)
-![uniform_quantization](/assets/images_git/nb_uniform_quantization.png)
+![uniform_quantization](/images_git/uniform_quantization.png)
+![uniform_quantization](/images_git/nb_uniform_quantization.png)
 
 #### adaptive_quantization.c 
 
@@ -35,8 +35,8 @@ Le programme demandera un chiffre n désignant le nombre d’intervalles de quan
 
 **Résultat exemple**
 
-![adaptive_quantization](/assets/images_git/adaptive_quantization.png)
-![adaptive_quantization](/assets/images_git/nb_adaptive_quantization.png)
+![adaptive_quantization](/images_git/adaptive_quantization.png)
+![adaptive_quantization](/images_git/nb_adaptive_quantization.png)
 
 #### floyd_steinberg.c 
 
@@ -47,8 +47,8 @@ __Usage :__
 Le programme effectue une quantification floyd-steinberg 2 bits par canaux (soit 8 couleurs possible en RGB et 2 couleurs en N/B)
 **Résultat exemple**
 
-![floyd_steinberg_quantization](/assets/images_git/floyd_steinberg_quantization.png)
-![floyd_steinberg_quantization](/assets/images_git/nb_floyd_steinberg_quantization.png)
+![floyd_steinberg_quantization](/images_git/floyd_steinberg_quantization.png)
+![floyd_steinberg_quantization](/images_git/nb_floyd_steinberg_quantization.png)
 
 #### histogramme.c
 
