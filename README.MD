@@ -45,6 +45,7 @@ __Usage :__
     ./<exec_file> <src_file> <dest_file>
 ```
 Le programme effectue une quantification floyd-steinberg 2 bits par canaux (soit 8 couleurs possible en RGB et 2 couleurs en N/B)
+
 **Résultat exemple**
 
 ![floyd_steinberg_quantization](/images_git/floyd_steinberg.png)
