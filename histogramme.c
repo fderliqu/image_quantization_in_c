@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	do{
 		ch = fgetc(fd_input);
 		if(tmp_count >= 3){
-			histogramme[ch]++;
+			if(!feof(fd_input))histogramme[ch]++;
 		}
 		if(ch == 10)tmp_count++;
 	}while(!feof(fd_input));
