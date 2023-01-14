@@ -90,7 +90,6 @@ void setNewValues(int * histogramme, int * newValues, int size[2], int n){
 		count+=histogramme[i];
 		if(max == 0 || histogramme[max] < histogramme[i])max = i;
 		if(count>limite || i == INT_NUMBER-1){
-			printf("%d %d %d\n",last,i,max);
 			for(int j=last;j<=i;j++)newValues[j]=max;
 			max = 0;
 			last = i+1;

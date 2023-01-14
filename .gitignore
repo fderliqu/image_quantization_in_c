@@ -4,3 +4,6 @@ a.out
 *.zip
 *.a
 *.csv
+*.pgm
+*.ppm
+*.png
