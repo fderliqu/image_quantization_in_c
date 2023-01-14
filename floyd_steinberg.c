@@ -52,10 +52,11 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
     
     if(file_extention == 1){
        for(int y=0;y < size[1];y++){
-            for(int x=0;x<size[0]*3-1;x+=3){
+            for(int x=0;x<size[0]*3;x+=3){
                 /*Si ligne impaire, alors on va de droite à gauche*/
                 if(y%2){
                     index = y*size[0]*3+size[0]*3 - 3 - x;
+                    printf("%d-%d ",x,y);
                     rgb_coulour.r = data[index];
                     rgb_coulour.g = data[index+1];
                     rgb_coulour.b = data[index+2];
@@ -67,7 +68,7 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                     data[index+1] = rgb_coulour.g;
                     data[index+2] = rgb_coulour.b;
                     /*Application de la dipersion d"erreur*/
-                    if(x!=0 && y!=size[1]-1){
+                    if(x!=size[0]*3-3 && y!=size[1]-1){
                         data[index-3]           = data[index-3]             + rgb_error.r*(7.0/16.0);
                         data[index-2]           = data[index-2]             + rgb_error.g*(7.0/16.0);
                         data[index-1]           = data[index-1]             + rgb_error.b*(7.0/16.0);
@@ -79,20 +80,22 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                         data[index+size[0]*3]   = data[index+size[0]*3]     + rgb_error.r*(5.0/16.0);
                         data[index+1+size[0]*3] = data[index+1+size[0]*3]   + rgb_error.g*(5.0/16.0);
                         data[index+2+size[0]*3] = data[index+2+size[0]*3]   + rgb_error.b*(5.0/16.0);
-
+                    }
+                    if(x!=0 && y!=size[1]-1){   
                         data[index+3+size[0]*3] = data[index+3+size[0]*3]   + rgb_error.r*(3.0/16.0);
                         data[index+4+size[0]*3] = data[index+4+size[0]*3]   + rgb_error.g*(3.0/16.0);
                         data[index+5+size[0]*3] = data[index+5+size[0]*3]   + rgb_error.b*(3.0/16.0);
                     }
-                    if(x!=0 && y==size[1]-1){
-                        data[index+3]           = data[index+3]             + rgb_error.r*(7.0/16.0);
-                        data[index+4]           = data[index+4]             + rgb_error.g*(7.0/16.0);
-                        data[index+5]           = data[index+5]             + rgb_error.b*(7.0/16.0);
+                    if(x!=size[0]*3-3 && y==size[1]-1){
+                        data[index-3]           = data[index-3]             + rgb_error.r*(7.0/16.0);
+                        data[index-2]           = data[index-2]             + rgb_error.g*(7.0/16.0);
+                        data[index-1]           = data[index-1]             + rgb_error.b*(7.0/16.0);
                     }
                 }
                 /*Si ligne paire, alors on va de gauche à droite*/
                 else{
                     index = x+y*size[0]*3;
+                    printf("%d-%d ",x,y);
                     rgb_coulour.r = data[index];
                     rgb_coulour.g = data[index+1];
                     rgb_coulour.b = data[index+2];
@@ -115,7 +118,8 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                         data[index+size[0]*3]   = data[index+size[0]*3]     + rgb_error.r*(5.0/16.0);
                         data[index+1+size[0]*3] = data[index+1+size[0]*3]   + rgb_error.g*(5.0/16.0);
                         data[index+2+size[0]*3] = data[index+2+size[0]*3]   + rgb_error.b*(5.0/16.0);
-
+                    }
+                    if(x!=0 && y!=size[1]-1){
                         data[index-3+size[0]*3] = data[index-3+size[0]*3]   + rgb_error.r*(3.0/16.0);
                         data[index-2+size[0]*3] = data[index-2+size[0]*3]   + rgb_error.g*(3.0/16.0);
                         data[index-1+size[0]*3] = data[index-1+size[0]*3]   + rgb_error.b*(3.0/16.0);
@@ -141,9 +145,11 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                     /*Application de la dipersion d"erreur*/
                     if(x!=size[0]-1 && y!=size[1]-1){
                         data[index+size[0]] = data[index+size[0]] + nb_error*(5.0/16.0);
-                        data[index+1+size[0]] = data[index+1+size[0]] + nb_error*(3.0/16.0);
                         data[index-1] = data[index-1] + nb_error*(7.0/16.0);
                         data[index-1+size[0]] = data[index-1+size[0]] + nb_error*(1.0/16.0);
+                    }
+                    if(x!=0 && y!=size[1]-1){
+                        data[index+1+size[0]] = data[index+1+size[0]] + nb_error*(3.0/16.0);
                     }
                     if(x!=size[0]-1 && y==size[1]-1){
                         data[index+1] = data[index+1] + nb_error*(7.0/16.0);
@@ -157,9 +163,11 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                     data[index] = nb_coulour;
                     if(x!=size[0]-1 && y!=size[1]-1){
                         data[index+size[0]] = data[index+size[0]] + nb_error*(5.0/16.0);
-                        data[index-1+size[0]] = data[index-1+size[0]] + nb_error*(3.0/16.0);
                         data[index+1] = data[index+1] + nb_error*(7.0/16.0);
                         data[index+1+size[0]] = data[index+1+size[0]] + nb_error*(1.0/16.0);
+                    }
+                    if(x!=0 && y!=size[1]-1){
+                        data[index-1+size[0]] = data[index+1+size[0]] + nb_error*(3.0/16.0);
                     }
                     if(x!=0 && y==size[1]-1){
                         data[index+1] = data[index+1] + nb_error*(7.0/16.0);
@@ -260,7 +268,7 @@ int main(int argc, char const *argv[]){
     printf("size %d x %d\n",size[0],size[1]);
     change_values(data,file_extention,size);
     for(index=0;index<size[0]*size[1]*mul;index++){
-        //printf("%d ",index);
+       // printf("%d %d\t",index,data[index]);
         fprintf(fd_output,"%c",data[index]);
     }
     free(data);
