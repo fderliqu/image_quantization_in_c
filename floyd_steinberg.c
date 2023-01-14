@@ -56,7 +56,6 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                 /*Si ligne impaire, alors on va de droite à gauche*/
                 if(y%2){
                     index = y*size[0]*3+size[0]*3 - 3 - x;
-                    printf("%d-%d ",x,y);
                     rgb_coulour.r = data[index];
                     rgb_coulour.g = data[index+1];
                     rgb_coulour.b = data[index+2];
@@ -95,7 +94,6 @@ void change_values(unsigned char * data, int file_extention, int size[2]){
                 /*Si ligne paire, alors on va de gauche à droite*/
                 else{
                     index = x+y*size[0]*3;
-                    printf("%d-%d ",x,y);
                     rgb_coulour.r = data[index];
                     rgb_coulour.g = data[index+1];
                     rgb_coulour.b = data[index+2];
