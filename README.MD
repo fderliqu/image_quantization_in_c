@@ -62,9 +62,9 @@ Le programme print les valeurs comme un histogramme
 
 __Usage :__ 
 ```sh
-    ./<exec_file> <src_file> <dest_file.csv>
+    ./<exec_file> <src_file>
 ```
-Le programme envoie les valeurs dans un csv
+Le programme envoie les valeurs dans un csv nommé histogramme.csv
 
 ## Compilation
 
