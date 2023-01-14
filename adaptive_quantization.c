@@ -84,12 +84,16 @@ void setNewValues(int * histogramme, int * newValues, int size[2], int n){
 	/*On calcule les nouvelles valeurs de l'image*/
 	int limite = (size[0]*size[1])/n;
 	int count = 0;
-	int value = 0;
+	int last = 0;
+	int max = 0;
 	for(int i=0;i<INT_NUMBER;i++){
 		count+=histogramme[i];
-		newValues[i] = value;
-		if(count>limite){
-			value = i+1;
+		if(max == 0 || histogramme[max] < histogramme[i])max = i;
+		if(count>limite || i == INT_NUMBER-1){
+			printf("%d %d %d\n",last,i,max);
+			for(int j=last;j<=i;j++)newValues[j]=max;
+			max = 0;
+			last = i+1;
 			count = 0;
 		}
 	}
